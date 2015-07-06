@@ -1,8 +1,13 @@
 <% if object.errors.any? %>
- <h3>You done messed up.</h3>
- <ul>
-   <% object.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
-   <% end %>
- </ul>
+
+  <% content_for(:title, "YOU WRONG!!!!") %>
+  <div class="text-center">
+
+  <h3>YOU MAKE PROBLEM</h3>
+  <!-- <ul>
+    <% object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul> -->
+  </div>
 <% end %>

@@ -10,12 +10,17 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
+  rescue_from Pundit::NotDefinedError, with: :not_logged_in
   private
 
   def user_not_authorized
     flash[:alert] = "YOU NO DO. BAD. YOU GET STRONGER MAYBE DO LATER"
     redirect_to(request.referrer || root_path)
+  end
+
+  def not_logged_in
+    flash[:alert] = "YOU NO GO HERE. CAVE ENTER MAYBE GO"
+    redirect_to root_path
   end
 
   helper_method :current_user

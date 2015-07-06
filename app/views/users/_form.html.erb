@@ -2,8 +2,9 @@
 
 <%= bootstrap_form_for(@user) do |f| %>
   <%= f.text_field :name, placeholder: "User Name" %>
-  <%= f.text_field :email, placeholder: "llamaKing@LammasR.us" %>
-  <%= f.text_field :password, placeholder: "SUPER SECURE PASSWERD" %>
+  <%= f.email_field :email, placeholder: "llamaKing@LammasR.us" %>
+  <%= f.password_field :password, placeholder: "SUPER SECURE PASSWERD" %>
+  <%= f.password_field :password_confirmation, placeholder: "SAME SUPER SECURE PASSWERD"%>
   <% if current_user && current_user.is_admin %>
     <%= f.check_box :is_admin %>
   <% end %>

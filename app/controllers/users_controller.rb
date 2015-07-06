@@ -9,8 +9,8 @@ class UsersController < ApplicationController
       flash[:notice] = "WELCOME PEASANT"
       redirect_to log_in_path
     else
-      flash[:notice] = "YOU DONE MESSED UP. OR MAYBE WE DID. YOU GO BACK NOW"
-      redirect_to :back
+      # flash[:notice] = "YOU DONE MESSED UP. OR MAYBE WE DID. YOU GO BACK NOW"
+      render :new
     end
   end
 

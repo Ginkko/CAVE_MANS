@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: true
   validates :name, presence: true
-
+  validates :password, presence: true
   before_save :encrypt_password
 
 
@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
     else
       return nil
     end
-    
+
   end
 end
