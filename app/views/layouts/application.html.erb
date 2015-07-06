@@ -8,6 +8,14 @@
 </head>
 <body>
 <div class="container">
+  <div class="text-center bold">
+    <% if current_user %>
+      <p> YOU AM - <%= current_user.name %> </p>
+    <% end %>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+  </div>
+
   <%= yield %>
 </div>
 
