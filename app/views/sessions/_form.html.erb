@@ -1,0 +1,6 @@
+
+<%= bootstrap_form_tag url:'/log-in' do |f| %>
+  <%= f.email_field :email, placeholder: 'UG@SMASH.RK' %>
+  <%= f.password_field :password %>
+  <%= f.submit "CAVE ENTER", class: "btn btn-success btn-block"%>
+<% end %>

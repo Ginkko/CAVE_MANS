@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', object: @user %>
+
+<%= bootstrap_form_for(@user) do |f| %>
+  <%= f.text_field :name, placeholder: "User Name" %>
+  <%= f.text_field :email, placeholder: "llamaKing@LammasR.us" %>
+  <%= f.text_field :password, placeholder: "SUPER SECURE PASSWERD" %>
+  <%= f.submit data: {disable_with: "Hail Satan..." }, class: "btn btn-success btn-block" %>
+<% end %>
