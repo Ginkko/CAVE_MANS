@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "WELCOME PEASANT"
-      redirect_to root_path
+      redirect_to log_in_path
     else
       flash[:notice] = "YOU DONE MESSED UP. OR MAYBE WE DID. YOU GO BACK NOW"
       redirect_to :back
@@ -16,10 +16,16 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    authorize current_user
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   private def user_params

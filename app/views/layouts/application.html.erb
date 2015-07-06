@@ -21,16 +21,24 @@
   <%= yield %>
   </div>
 </div>
-
-   <nav class='navbar navbar-default' role='navigation' id="nav-footer">
-      <ul class='nav navbar-nav'>
-        <li><%= link_to "CAVE MENS", users_path %></li>
-        <li><%= link_to "NEW CAVE MENS", new_user_path %></li>
-        <li><%= link_to "CAVE ENTER", log_in_path %></li>
-        <li><%= link_to "CAVE LEAVE", log_out_path %></li>
-      </ul>
-    </nav>
-
+ <nav class='navbar navbar-default' role='navigation' id="nav-footer">
+    <ul class='nav navbar-nav'>
+      <% if current_user %>
+        <% if current_user.is_admin %>
+              <li><%= link_to current_user.name, user_path(current_user) %></li>
+              <li><%= link_to "CAVE MENS", users_path %></li>
+              <li><%= link_to "NEW CAVE MENS", new_user_path %></li>
+              <li><%= link_to "CAVE LEAVE", log_out_path %></li>
+        <% else %>
+              <li><%= link_to current_user.name, user_path(current_user) %></li>
+              <li><%= link_to "CAVE LEAVE", log_out_path %></li>
+        <% end %>
+      <% else %>
+           <li><%= link_to "I NEW CAVE MAN", new_user_path %></li>
+           <li><%= link_to "CAVE ENTER", log_in_path %></li>
+      <% end %>
+   </ul>
+ </nav>
 
 </body>
 </html>
