@@ -5,3 +5,14 @@
 <p>
   <%= @user.email %>
 </p>
+
+<% if current_user %>
+  <% if current_user.is_admin || current_user == @user %>
+    <div class="btn-group btn-group-sm " role="group">
+      <%= link_to "CHANGE", edit_user_path(@user), class: "btn btn-warning" %>
+      <%= link_to "FIRE", user_path(@user), class: "btn btn-danger",
+                                        data: {confirm: "FIRE CAVE MANS?",
+                                                method: 'delete'} %>
+    </div>
+  <% end %>
+<% end %>

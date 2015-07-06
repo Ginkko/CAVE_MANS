@@ -6,7 +6,8 @@ class UserPolicy
   end
 
   def edit?
-    user.is_admin or current_user == user
+    binding.pry
+    user.is_admin || user == curent_user
   end
 
   def index?
