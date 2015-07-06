@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "WELCOME PEASANT"
-      redirect_to log_in_path
+      if current_user && current_user.is_admin
+        redirect_to users_path
+      else
+        redirect_to log_in_path
+      end
     else
       # flash[:notice] = "YOU DONE MESSED UP. OR MAYBE WE DID. YOU GO BACK NOW"
       render :new
@@ -26,6 +30,17 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     authorize @user
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "#{@user.name} BYE BYE"
+    if current_user.is_admin
+      redirect_to users_path
+    else
+      redirect_to root_path
+    end
   end
 
   private def user_params
