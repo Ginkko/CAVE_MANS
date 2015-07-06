@@ -12,4 +12,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "YOU LEAVE CAVE. BYE."
+    redirect_to root_path
+  end
+
 end

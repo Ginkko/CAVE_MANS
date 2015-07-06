@@ -11,5 +11,15 @@
   <%= yield %>
 </div>
 
+   <nav class='navbar navbar-default' role='navigation' id="nav-footer">
+      <ul class='nav navbar-nav'>
+        <li><%= link_to "CAVE MENS", users_path %></li>
+        <li><%= link_to "NEW CAVE MENS", new_user_path %></li>
+        <li><%= link_to "CAVE ENTER", log_in_path %></li>
+        <li><%= link_to "CAVE LEAVE", log_out_path %></li>
+      </ul>
+    </nav>
+
+
 </body>
 </html>
