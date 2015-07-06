@@ -1,5 +1,7 @@
+<h1>ALL CAVE MANS</h1>
+
 <% @users.all.each do |user| %>
   <ul>
-    <li> <%= user.email %> , <%= user.name %> </li>
+    <li><%= link_to user.name, user_path(user) %></li>
   </ul>
 <% end %>
