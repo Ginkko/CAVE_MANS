@@ -8,6 +8,8 @@
 </head>
 <body>
 <div class="container">
+  <div class="panel panel-defalt">
+
   <div class="text-center bold">
     <% if current_user %>
       <p> YOU AM - <%= current_user.name %> </p>
@@ -17,6 +19,7 @@
   </div>
 
   <%= yield %>
+  </div>
 </div>
 
    <nav class='navbar navbar-default' role='navigation' id="nav-footer">
