@@ -16,6 +16,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+    font-family: 'erasaurregular';
+    src: url('erasaur-webfont.eot');
+    src: url('erasaur-webfont.eot?#iefix') format('embedded-opentype'),
+         url('erasaur-webfont.woff2') format('woff2'),
+         url('erasaur-webfont.woff') format('woff'),
+         url('erasaur-webfont.ttf') format('truetype'),
+         url('erasaur-webfont.svg#erasaurregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
   h1 {
     padding-bottom: 9px;
     margin: 40px 0 20px;
@@ -37,4 +50,7 @@
 
  body {
    padding-bottom: 30px;
+   background-image: url("cave.jpg");
+   color: white;
+   font-family: erasaurregular;
  }
