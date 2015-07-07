@@ -7,7 +7,9 @@ class UserPolicy
   end
 
   def edit?
-    @current_user.is_admin || @current_user == @target_user
+    if @current_user
+      @current_user.is_admin || @current_user == @target_user
+    end
   end
 
   def destroy?
@@ -15,7 +17,13 @@ class UserPolicy
   end
 
   def index?
-    @current_user.is_admin
+    if @current_user
+      @current_user.is_admin
+    end
+  end
+
+  def show?
+   @current_user
   end
 
 end
