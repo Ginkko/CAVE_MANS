@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources 'home'
   resources 'users'
   resources 'sessions', only: [:new, :create, :destroy]
+  resources 'questons' do
+    resources 'answers', only: [:new, :create, :destroy]
+  end
 
   get "/log-in" => "sessions#new"
   post "/log-in" => "sessions#create"

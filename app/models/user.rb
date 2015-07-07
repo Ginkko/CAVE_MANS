@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
+  has_many :questions
 
   validates :password, confirmation: true
   validates :email, presence: true
