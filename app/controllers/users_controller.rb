@@ -52,7 +52,11 @@ class UsersController < ApplicationController
     authorize @user
     @user.destroy
     flash[:notice] = "#{@user.name} BYE BYE"
-    if current_user.is_admin
+
+    if current_user == @user
+      session.destroy
+      redirect_to root_path
+    elsif current_user && current_user.is_admin
       redirect_to users_path
     else
       redirect_to root_path

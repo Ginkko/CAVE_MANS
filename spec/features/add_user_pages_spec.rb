@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe "the add user process" do
+
   it "adds a user" do
     test_user = FactoryGirl.create(:user)
     visit log_in_path
