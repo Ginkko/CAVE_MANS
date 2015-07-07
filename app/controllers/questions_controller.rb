@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    authorize current_user
+    authorize @question
     if @question.update(question_params)
       flash[:alert] = "BRAIN HURT DIFFERENT"
         redirect_to question_path(@question)
@@ -26,7 +26,6 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    authorize current_user
     @questions = Question.all
   end
 
@@ -36,12 +35,12 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
-    authorize current_user
+    authorize @question
   end
 
   def destroy
     @question = Question.find(params[:id])
-    authorize current_user
+    authorize @question
     @question.destroy
     flash[:notice] = "#{@question.name} GONE. BRAIN HURT NO AS MUCH"
     redirect_to questions_path
