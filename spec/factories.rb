@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory(:question) do
-    name('BRAIN HURT')
+    name('LOL')
     body('test body')
   end
 

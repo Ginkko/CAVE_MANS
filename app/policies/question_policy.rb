@@ -22,4 +22,9 @@ class QuestionPolicy
     @user
   end
 
+  def index?
+    @current_user
+  end
+
+
 end

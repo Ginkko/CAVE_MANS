@@ -635,6 +635,20 @@
         null,
         null
       ],
+      "/Users/Guest/Desktop/CAVE_MANS/spec/policies/user_policy_spec.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/Guest/Desktop/CAVE_MANS/app/controllers/sessions_controller.rb": [
         1,
         null,
@@ -774,6 +788,11 @@
         null,
         1,
         12,
+        null,
+        null,
+        1,
+        0,
+        null,
         null,
         null,
         null
@@ -954,6 +973,6 @@
         null
       ]
     },
-    "timestamp": 1436311595
+    "timestamp": 1436312927
   }
 }
