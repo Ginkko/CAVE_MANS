@@ -7,7 +7,7 @@ class UserPolicy
 
   def edit?
     binding.pry
-    user.is_admin || user == curent_user
+    user.is_admin || user == @curent_user
   end
 
   def index?
