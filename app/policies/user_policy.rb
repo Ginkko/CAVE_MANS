@@ -1,17 +1,17 @@
 class UserPolicy
-  attr_reader :user, :user1
+  attr_reader :current_user, :target_user
 
-  def initialize(user, user1)
-    @user = user
+  def initialize(current_user, target_user)
+    @current_user = current_user
+    @target_user = target_user
   end
 
   def edit?
-    binding.pry
-    user.is_admin || user == @curent_user
+    @current_user.is_admin || @current_user == @target_user
   end
 
   def index?
-    user.is_admin
+    @current_user.is_admin
   end
 
 end
