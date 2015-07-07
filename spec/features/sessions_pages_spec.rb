@@ -2,6 +2,12 @@ require 'rails_helper'
 
 describe "session pages" do
 
+  it "Logs a user in" do
+    test_user = FactoryGirl.create(:user)
+    log_in_rock
+    expect(page).to have_content("Rock")
+  end
+
   it "Logs a user out" do
     test_user = FactoryGirl.create(:user)
     log_in_rock
