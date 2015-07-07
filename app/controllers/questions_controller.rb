@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      binding.pry
       flash[:notice] = "BRAIN HURT NOW. WHY DO THIS"
         redirect_to question_path(@question)
     else

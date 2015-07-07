@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', object: @answer %>
+
+<%= bootstrap_form_for([@question, @answer]) do |f| %>
+  <%= f.text_area :content, placeholder: "They need to do way instain mother> who kill thier babbys. becuse these babby cant frigth back? it was on the news this mroing a mother in ar who had kill her three kids. they are taking the three babby back to new york too lady to rest my pary are with the father who lost his children ; i am truley sorry for your lots" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :question_id, value: @question.id %>
+  <%= f.submit data: {disable_with: "Hail Satan..." }, class: "btn btn-success btn-block" %>
+<% end %>

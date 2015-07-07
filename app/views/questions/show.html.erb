@@ -2,9 +2,29 @@
 
 <h1><%= @question.name %></h1>
 
+<em class="author"><%=link_to @question.user.name, user_path(@question.user) %> need know</em>
+
+<br><br>
+
 <p>
   <%= @question.body %>
 </p>
+
+<% @question.answers.each do |answer| %>
+  <ul>
+    <li>
+      <%= answer.user.name %> SAY - <%= answer.content %>
+       <% if current_user.is_admin || current_user == answer.user %>
+        <%= link_to edit_question_answer_path(@question, answer) do %>
+         <span class="glyphicon glyphicon-edit orange"></span>
+        <% end %>
+        <%= link_to question_answer_path(@question, answer), data: {confirm: "FIRE BRAIN HELP?", method: 'delete'} do %>
+         <span class="glyphicon glyphicon-fire red"></span>
+         <% end %>
+       <% end %>
+   </li>
+  </ul>
+<% end %>
 
 <% if current_user %>
   <% if current_user.is_admin || current_user == @question.user %>
@@ -16,3 +36,6 @@
     </div>
   <% end %>
 <% end %>
+
+
+  <%= link_to "ME KNOW", new_question_answer_path(@question), class: "btn btn-success"  %>

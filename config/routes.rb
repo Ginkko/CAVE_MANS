@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources 'users'
   resources 'sessions', only: [:new, :create, :destroy]
   resources 'questions' do
-    resources 'answers', only: [:new, :create, :destroy]
+    resources 'answers', except: [:index, :show]
   end
 
   get "/log-in" => "sessions#new"
