@@ -23,4 +23,17 @@ describe "session pages" do
     expect(page).to have_content("PROBLEM LOG IN.")
   end
 
+  it "Shows an error if you're not logged in" do
+    visit root_path
+    visit users_path
+    expect(page).to have_content "YOU NO GO HERE."
+  end
+
+  it "Shows an error if you're not authorized to see the page" do
+    test_user = FactoryGirl.create(:user)
+    log_in_rock
+    visit users_path
+    expect(page).to have_content "YOU NO DO. BAD."
+  end
+
 end
