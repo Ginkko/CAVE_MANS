@@ -45,5 +45,15 @@ describe "the delete and edit user process" do
     expect(page).to have_content('Rick')
   end
 
+  it "edits a user as admin" do
+    test_user = FactoryGirl.create(:user, is_admin: true)
+    test_user_2 = FactoryGirl.create(:user, name: "fish",email: "test@test.com")
+    log_in_rock
+    visit users_path
+    click_on(test_user_2.name)
+    edit_rock
+    expect(page).to have_content('Rick')
+  end
+
 
 end
