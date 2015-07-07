@@ -24,4 +24,10 @@ describe "the add user process" do
     click_button "Create User"
     expect(page).to have_content "WELCOME"
   end
+
+  it "gets an error message for blank form" do
+    visit new_user_path
+    click_on 'Create User'
+    expect(page).to have_content("can't be blank")
+  end
 end

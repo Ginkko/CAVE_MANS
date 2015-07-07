@@ -58,8 +58,6 @@ class UsersController < ApplicationController
       redirect_to root_path
     elsif current_user && current_user.is_admin
       redirect_to users_path
-    else
-      redirect_to root_path
     end
   end
 

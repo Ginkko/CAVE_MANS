@@ -36,6 +36,16 @@ describe "the delete and edit user process" do
     expect(page).to have_content "BYE BYE"
   end
 
+  it "deletes another user as an admin" do
+    test_admin = FactoryGirl.create(:user, is_admin: true)
+    test_user = FactoryGirl.create(:user, name: "Bertha", email: 'example@email.com')
+    log_in_rock
+    visit user_path(test_user)
+    click_on 'FIRE'
+    expect(page).to have_content test_user.name + ' BYE BYE'
+  end
+
+
 
   it "edits a user as self" do
     test_user = FactoryGirl.create(:user)
@@ -55,5 +65,11 @@ describe "the delete and edit user process" do
     expect(page).to have_content('Rick')
   end
 
-
+  it "gets an error message for blank form" do
+    test_user = FactoryGirl.create(:user)
+    log_in_rock
+    visit edit_user_path(test_user)
+    click_on 'Update User'
+    expect(page).to have_content("can't be blank")
+  end
 end
