@@ -7,6 +7,15 @@ def log_in_rock
   click_button 'CAVE ENTER'
 end
 
+def edit_rock
+  click_on "CHANGE"
+  fill_in 'Name', with: "Rick"
+  fill_in 'Email', with: "Rick@Rock.rk"
+  fill_in 'Password', with: "rickrules"
+  fill_in 'user_password_confirmation', with: "rickrules"
+  click_on 'Update User'
+end
+
 describe "the delete and edit user process" do
 
   it "deletes a user" do
@@ -27,6 +36,14 @@ describe "the delete and edit user process" do
     expect(page).to have_content "BYE BYE"
   end
 
+
+  it "edits a user as self" do
+    test_user = FactoryGirl.create(:user)
+    log_in_rock
+    visit user_path(test_user)
+    edit_rock
+    expect(page).to have_content('Rick')
+  end
 
 
 end
