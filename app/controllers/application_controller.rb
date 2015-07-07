@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def not_logged_in
     flash[:alert] = "YOU NO GO HERE. CAVE ENTER MAYBE GO"
-    redirect_to root_path
+    redirect_to log_in_path
   end
 
   helper_method :current_user
