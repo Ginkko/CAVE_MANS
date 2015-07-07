@@ -10,6 +10,10 @@ class UserPolicy
     @current_user.is_admin || @current_user == @target_user
   end
 
+  def destroy?
+    @current_user.is_admin || @current_user == @target_user
+  end
+
   def index?
     @current_user.is_admin
   end

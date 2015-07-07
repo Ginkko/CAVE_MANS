@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', object: @question %>
+
+<%= bootstrap_form_for(@question) do |f| %>
+  <%= f.text_field :name, placeholder: "Question Name" %>
+  <%= f.text_area :body, placeholder: "HOW IS BABY FORMED" %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit data: {disable_with: "Hail Satan..." }, class: "btn btn-success btn-block" %>
+<% end %>

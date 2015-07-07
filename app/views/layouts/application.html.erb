@@ -24,18 +24,17 @@
  <nav class='navbar navbar-default' role='navigation' id="nav-footer">
     <ul class='nav navbar-nav'>
       <% if current_user %>
+          <li><%= link_to current_user.name, user_path(current_user) %></li>
         <% if current_user.is_admin %>
-              <li><%= link_to current_user.name, user_path(current_user) %></li>
-              <li><%= link_to "CAVE MENS", users_path %></li>
-              <li><%= link_to "NEW CAVE MENS", new_user_path %></li>
-              <li><%= link_to "CAVE LEAVE", log_out_path %></li>
-        <% else %>
-              <li><%= link_to current_user.name, user_path(current_user) %></li>
-              <li><%= link_to "CAVE LEAVE", log_out_path %></li>
+          <li><%= link_to "CAVE MENS", users_path %></li>
+          <li><%= link_to "NEW CAVE MENS", new_user_path %></li>
         <% end %>
+        <li><%= link_to "CAVE LEAVE", log_out_path %></li>
+        <li><%= link_to "BRAIN HURTS", questions_path %></li>
+        <li><%= link_to "NEW BRAIN HURT", new_question_path %></li>
       <% else %>
-           <li><%= link_to "I NEW CAVE MAN", new_user_path %></li>
-           <li><%= link_to "CAVE ENTER", log_in_path %></li>
+         <li><%= link_to "I NEW CAVE MAN", new_user_path %></li>
+         <li><%= link_to "CAVE ENTER", log_in_path %></li>
       <% end %>
    </ul>
  </nav>

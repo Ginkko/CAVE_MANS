@@ -48,6 +48,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    authorize @user
     @user.destroy
     flash[:notice] = "#{@user.name} BYE BYE"
     if current_user.is_admin

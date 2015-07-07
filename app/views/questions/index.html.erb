@@ -1,0 +1,19 @@
+<% content_for(:title, "ALL CAVE BRAIN HURTS") %>
+
+<h1>ALL CAVE BRAIN HURTS</h1>
+
+<% @questions.all.each do |question| %>
+  <ul>
+    <li>
+      <%= link_to question.name, question_path(question) %>
+        <% if current_user.is_admin || current_user == question.user %>
+           <%= link_to edit_question_path(question) do %>
+            <span class="glyphicon glyphicon-edit orange"></span>
+           <% end %>
+           <%= link_to question_path(question), data: {confirm: "FIRE BRAIN HURT?", method: 'delete'} do %>
+            <span class="glyphicon glyphicon-fire red"></span>
+          <% end %>
+        <% end %>
+    </li>
+  </ul>
+<% end %>

@@ -1,0 +1,18 @@
+<% content_for(:title, @question.name) %>
+
+<h1><%= @question.name %></h1>
+
+<p>
+  <%= @question.body %>
+</p>
+
+<% if current_user %>
+  <% if current_user.is_admin || current_user == @question.user %>
+    <div class="btn-group btn-group-sm " role="group">
+      <%= link_to "CHANGE", edit_question_path(@question), class: "btn btn-warning" %>
+      <%= link_to "FIRE", question_path(@question), class: "btn btn-danger",
+                                        data: {confirm: "FIRE BRAIN HURT?",
+                                                method: 'delete'} %>
+    </div>
+  <% end %>
+<% end %>
