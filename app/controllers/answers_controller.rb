@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    @question = Question.find(params[:question_id])
     if @answer.save
       flash[:notice] = "THANK KNOWING. HOPE BRAIN NO HURT MUCH NOW."
         redirect_to question_path(@answer.question)
@@ -16,10 +17,11 @@ class AnswersController < ApplicationController
 
   def update
     @answer = Answer.find(params[:id])
+    @question = Question.find(params[:question_id])
     authorize @answer
     if @answer.update(answer_params)
       flash[:alert] = "WHY YOU CHANGE KNOW. HURT DIFFERENT"
-        redirect_to question_path(@answer.question)
+      redirect_to question_path(@answer.question)
     else
       render :edit
     end
@@ -27,7 +29,7 @@ class AnswersController < ApplicationController
 
   def edit
     @answer = Answer.find(params[:id])
-    @question = Question.find(params[:question_id]) 
+    @question = Question.find(params[:question_id])
     authorize @answer
   end
 
@@ -35,7 +37,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     authorize @answer
     @answer.destroy
-    flash[:notice] = "#{@answer.name} GONE. BRAIN STILL HURT"
+    flash[:notice] = "GONE. BRAIN STILL HURT"
     redirect_to question_path(@answer.question)
   end
 

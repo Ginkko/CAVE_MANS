@@ -14,12 +14,11 @@ class QuestionPolicy
     @user.is_admin || @user == @question.user
   end
 
-
   def destroy?
     @user.is_admin || @user == @question.user
   end
 
-  def index?
+  def show?
     @user
   end
 

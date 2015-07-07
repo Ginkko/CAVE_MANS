@@ -15,10 +15,10 @@
     <li>
       <%= answer.user.name %> SAY - <%= answer.content %>
        <% if current_user.is_admin || current_user == answer.user %>
-        <%= link_to edit_question_answer_path(@question, answer) do %>
+        <%= link_to edit_question_answer_path(@question, answer), id: "edit_answer#{answer.id}" do %>
          <span class="glyphicon glyphicon-edit orange"></span>
         <% end %>
-        <%= link_to question_answer_path(@question, answer), data: {confirm: "FIRE BRAIN HELP?", method: 'delete'} do %>
+        <%= link_to question_answer_path(@question, answer), id: "delete_answer#{answer.id}", data: {confirm: "FIRE BRAIN HELP?", method: 'delete'} do %>
          <span class="glyphicon glyphicon-fire red"></span>
          <% end %>
        <% end %>
